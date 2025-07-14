@@ -1,24 +1,19 @@
-import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Price from './pages/Price';
+import Predict from './pages/Predict';
+import Sentiment from './pages/Sentiment';
 
 function App() {
-    const [message, setMessage] = useState('');
-
-    const callPing = async () => {
-        try {
-            const response = await fetch('http://localhost:5000/ping');
-            const data = await response.json();
-            setMessage(data.message);
-        } catch (err) {
-            setMessage('Error connecting to backend');
-        }
-    };
-
     return (
-        <div style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
-            <h1>React + Flask Test</h1>
-            <button onClick={callPing}>Call /ping</button>
-            {message && <p>Response: {message}</p>}
-        </div>
+        <Router>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/price" element={<Price />} />
+                <Route path="/predict" element={<Predict />} />
+                <Route path="/sentiment" element={<Sentiment />} />
+            </Routes>
+        </Router>
     );
 }
 
