@@ -1,12 +1,17 @@
 import Header from './Header';
 import Footer from './Footer';
+import './DashboardShell.css';
 
-export default function DashboardShell({ children }) {
+function DashboardShell({ children }) {
     return (
-        <div>
+        <div className="dashboard">
             <Header />
-            <main style={{ padding: '2rem' }}>{children}</main>
+            <div className="dashboard-content">
+                {children}
+            </div>
             <Footer />
         </div>
     );
 }
+
+export default DashboardShell;
