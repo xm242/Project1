@@ -1,4 +1,4 @@
-# Project1
+# Full stack and some Market analysis
 
 ## Tech Stack
 - Frontend: React (Vite or CRA)
